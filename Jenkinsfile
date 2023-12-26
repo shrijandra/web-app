@@ -4,7 +4,11 @@ pipeline {
         PATH = "/usr/bin:$PATH"
     }   
     stages {
-       
+        stage("clone code"){
+            steps{
+                git branch: 'shrijandra/web-app', credentialsId: 'gitid', url: 'https://github.com/shrijandra/web-app.git'
+            }
+        }
         stage("Cleanup Workspace"){
             steps {
                 cleanWs()
