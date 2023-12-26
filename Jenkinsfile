@@ -2,9 +2,8 @@ pipeline {
     agent any
     environment {
         PATH = "/usr/bin:$PATH"
-    }
-    }    
-    stages{
+    }   
+    stages {
        
         stage("Cleanup Workspace"){
             steps {
@@ -27,5 +26,6 @@ pipeline {
                 sh "mvn test"
             }
         } 
-}   
+    } 
+}      
 //refddfdsfds
