@@ -1,8 +1,8 @@
 pipeline {
-    agent {
-        docker {
-                    image 'openjdk8:alpine'
-                }
+    agent any
+    environment {
+        PATH = "/usr/bin:$PATH"
+    }
     }    
     stages{
        
@@ -27,6 +27,5 @@ pipeline {
                 sh "mvn test"
             }
         } 
-    }   
+}   
 //refddfdsfds
-}
