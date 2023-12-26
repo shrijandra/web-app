@@ -1,6 +1,12 @@
 pipeline {
     agent any
     stages{
+        stage("sonar quality check"){
+            agent {
+                docker {
+                    image 'openjdk8:alpine'
+                }
+            }
         stage("Cleanup Workspace"){
             steps {
                 cleanWs()
