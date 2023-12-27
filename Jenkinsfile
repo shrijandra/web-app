@@ -3,9 +3,9 @@ pipeline {
    // tools {
    //     maven "Maven3"
   //  }
-    environment {
-        PATH = "/usr/bin:$PATH"
-   }   
+ //   environment {
+ //       PATH = "/usr/bin:$PATH"
+ //  }   
     stages {
         stage("Cleanup Workspace"){
             steps {
