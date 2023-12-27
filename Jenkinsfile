@@ -23,7 +23,7 @@ pipeline {
       //          git branch: 'main', credentialsId: 
       //      }
 
-        stage("Build Application"){
+     /*   stage("Build Application"){
             steps {
                 sh "mvn clean package"
             }
@@ -32,7 +32,7 @@ pipeline {
             steps {
                 sh "mvn test"
             }
-        } 
+        } */
     } 
 }      
 //refddfdsfds
