@@ -20,14 +20,14 @@ pipeline {
 
         stage("Build Application"){
             steps {
-                sh "mvn clean test"
+                sh "mvn clean package"
             }
         }
-    //    stage('Unit Tests - JUnit and Jacoco'){
-    //        steps {
-     //           sh "mvn test"
-    //        }
-    //    }
+        stage('Unit Tests - JUnit and Jacoco'){
+           steps {
+                sh "mvn test"
+          }
+        }
     } 
 }      
 //refddfdsfds
