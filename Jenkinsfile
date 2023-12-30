@@ -1,8 +1,8 @@
 pipeline {
     agent any
-   // tools {
-   //     maven "Maven3"
-  //  }
+    tools {
+       maven "Maven3"
+    }
  //   environment {
  //       PATH = "/usr/bin:$PATH"
  //  }  
