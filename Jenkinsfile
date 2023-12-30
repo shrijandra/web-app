@@ -9,11 +9,11 @@ pipeline {
 
     environment {
 	    APP_NAME = "register-app-pipeline"
-            RELEASE = "1.0.0"
-            DOCKER_USER = "shrijandra"
-            DOCKER_PASS = 'dockerpsw'
-            IMAGE_NAME = "${DOCKER_USER}" + "/" + "${APP_NAME}"
-            IMAGE_TAG = "${RELEASE}-${BUILD_NUMBER}"
+        RELEASE = "1.0.0"
+        DOCKER_USER = "shrijandra"
+        DOCKER_PASS = 'dockerpsw'
+        IMAGE_NAME = "${DOCKER_USER}" + "/" + "${APP_NAME}"
+        IMAGE_TAG = "${RELEASE}-${BUILD_NUMBER}"
 	    JENKINS_API_TOKEN = credentials("JENKINS_API_TOKEN")
     } 
     stages {
