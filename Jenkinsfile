@@ -5,7 +5,17 @@ pipeline {
   //  }
  //   environment {
  //       PATH = "/usr/bin:$PATH"
- //  }   
+ //  }  
+
+    environment {
+	    APP_NAME = "register-app-pipeline"
+            RELEASE = "1.0.0"
+            DOCKER_USER = "shrijandra"
+            DOCKER_PASS = 'dockerpsw'
+            IMAGE_NAME = "${DOCKER_USER}" + "/" + "${APP_NAME}"
+            IMAGE_TAG = "${RELEASE}-${BUILD_NUMBER}"
+	    JENKINS_API_TOKEN = credentials("JENKINS_API_TOKEN")
+    } 
     stages {
         stage("Cleanup Workspace"){
             steps {
@@ -41,6 +51,19 @@ pipeline {
             steps {
                 script {
                     waitForQualityGate abortPipeline: false, credentialsId: 'jenkins-sonar-token'
+                }
+            }
+        }
+        stage("Build and push docker image"){
+            steps {
+                script {
+                    docker.withDockerRegistry('',DOCKER_PASS) {
+                        docker_image = docker.build "${IMAGE_NAME}"
+                    }
+                    docker.withDockerRegistry('',DOCKER_PASS) {
+                        docker_image.push("${IMAGE_NAME}")
+                        docker_image.push('latest')
+                    }
                 }
             }
         }
