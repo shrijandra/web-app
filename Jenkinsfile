@@ -28,6 +28,14 @@ pipeline {
                 sh "mvn test"
           }
         }
+        stage("Sonarqube Analysis"){
+            steps {
+                script {
+                    sh "mvn sonar:sonar"
+                }
+            }
+        }
+        
     } 
 }      
 //refddfdsfds
