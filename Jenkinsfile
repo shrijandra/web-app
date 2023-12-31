@@ -47,14 +47,14 @@ pipeline {
                 }
             }
         }
-        stage("Quality Gate"){
+       stage("Quality Gate"){
             steps {
                 script {
                     waitForQualityGate abortPipeline: false, credentialsId: 'jenkins-sonar-token'
                 }
             }
         }
-     /*   stage("Build and push docker image"){
+        stage("Build and push docker image"){
             steps {
                 script {
                     docker.withDockerRegistry('',DOCKER_PASS) {
@@ -66,7 +66,7 @@ pipeline {
                     }
                 }
             }
-        }*/
+        }
         
     } 
 }      
